@@ -27,9 +27,16 @@ class OuterClass {
 	interface Consume {
 		public void execute();
 		
+		interface Consume1 {
+			public static void print() {
+				System.out.println("nested interface");
+			}
+		}
+		
 		public default void print() {
 			//System.out.println(field1); Error - Cannot make a static reference to the non-static field field1
 			System.out.println(field2);
+			Consume1.print();
 			System.out.println();
 		}
 	}
